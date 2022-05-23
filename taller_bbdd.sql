@@ -28,18 +28,18 @@ CREATE TABLE prestamos_vigentes
     id int(11) NOT NULL auto_increment,
     usuarios_id int(11) NOT NULL,
     materiales_educativos_id INT NOT NULL,
-    loan_date DATE,
-    due_date DATE,
+    fecha_prestamo DATE,
+    fecha_devolucion DATE,
 
     PRIMARY KEY (id, materiales_educativos_id),
     FOREIGN KEY (materiales_educativos_id) REFERENCES materiales_educativos(id),
-    FOREIGN KEY (materiales_educativos_id) REFERENCES usuarios(id)
+    FOREIGN KEY (usuarios_id) REFERENCES usuarios(id)
 );
 
 CREATE TABLE historiales
 (
     usuarios_id INT NOT NULL,
-     materiales_educativos_id INT NOT NULL,
+    materiales_educativos_id INT NOT NULL,
     primer_apellido INT NOT NULL,
     fecha_prestamo DATE NOT NULL,
     fecha_devolucion DATE,
